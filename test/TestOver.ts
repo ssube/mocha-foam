@@ -4,8 +4,13 @@ import { over } from '../src/index';
 
 describe('some foo', () => {
   over('the bars', integer(), (it) => {
+    const large = Math.floor(Math.random() * 1_000_000);
     it('should be a small number', (bar: number) => {
-      return bar < 1_000;
+      return bar < large;
+    });
+
+    it('should be even', (bar: number) => {
+      return bar % 2 === 0;
     });
   });
 
