@@ -12,12 +12,31 @@ describe('some foo', () => {
     it('should be even', (bar: number) => {
       return bar % 2 === 0;
     });
+
+    it('should not throw', (t: number) => {
+      if (t.toString()[3] === '9') {
+        throw new Error('not a real number!');
+      }
+
+      return true;
+    });
   });
 
   over('some IDs', uuid(), (it) => {
+    beforeEach(() => {
+      console.log('before each ID test');
+    });
+
     it('should be a good one', (id: string) => {
       return id[9] !== 'a';
     });
+
+    it('should be long enough', (id: string) => {
+      return id.length > 2;
+    });
+  }, {
+    examples: [['a']],
+    numRuns: 1_000_000_000,
   });
 
   over('even numbers', integer().filter(n => n % 2 === 0), (it) => {

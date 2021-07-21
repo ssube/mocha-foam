@@ -1,4 +1,9 @@
 {
+  "name": "mocha-froth",
+  "version": "0.1.0",
+  "main": "out/src/index.js",
+  "author": "ssube <seansube@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "@types/chai-as-promised": "^7.1.4",
     "@types/mocha": "^8.2.3",
