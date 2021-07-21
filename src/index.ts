@@ -13,12 +13,19 @@ export function over<T>(name: string, strategy: Arbitrary<T>, suite: Suite<T>): 
         return new Promise((res, rej) => {
           const result = check(property(strategy, (t) => test.call(ctx, t)));
           if (result.failed) {
+            console.log(result);
             if (result.counterexample !== null) {
-              const examples = result.counterexample.join(',');
+              const examples = result.counterexample.map(it => {
+                if (typeof it === 'string' && it.length === 0) {
+                  return "''";
+                } else {
+                  return it;
+                }
+              }).join(',');
               const error = `failed after ${result.numRuns} runs and ${result.numShrinks} shrinks, failing on: ${examples}`;
               rej(new Error(error));
             } else {
-              rej(new Error('failed without counterexample'));
+              rej(new Error(`failed after ${result.numRuns} runs and ${result.numShrinks} shrinks, without counterexamples`));
             }
           } else {
             res();
