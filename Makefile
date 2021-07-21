@@ -11,13 +11,11 @@ build: ## build the app
 build: node_modules
 	yarn tsc
 
-bundle: build
-	node config/esbuild/browser.mjs
-	cp -rv src/index.html out/
-
 ci: build cover
 
-clean: clean-target
+clean: clean-modules clean-target
+
+clean-modules:
 	rm -rf node_modules/
 
 clean-target:
@@ -26,14 +24,6 @@ clean-target:
 docs:
 	yarn api-extractor run -c config/api-extractor.json
 	yarn api-documenter markdown -i out/temp -o out/docs
-
-GRAPH_LAYOUT ?= dot
-
-graph: ## render any debug graphs
-	cat out/debug-graph | $(GRAPH_LAYOUT) -Tpng -oout/debug-graph.png && sensible-browser out/debug-graph.png
-
-image: ## build the docker image
-	docker build $(DOCKER_ARGS) -f Dockerfile -t $(DOCKER_IMAGE) .
 
 install:
 	yarn
@@ -45,9 +35,6 @@ lint: node_modules
 node_modules: install
 
 out: build
-
-pages: bundle
-	cp out/bundle/browser.js bundle/browser.js
 
 push: ## push to both github and gitlab
 	git push $(GIT_ARGS) github $(GIT_HEAD_BRANCH)
@@ -62,26 +49,6 @@ release: node_modules
 	fi
 	yarn standard-version $(RELEASE_ARGS)
 	GIT_ARGS=--follow-tags $(MAKE) push
-
-RUN_ARGS ?= --config data/config.yml \
-	--data file://data/demo.yml \
-	--input 'create a test with test and with 20' \
-	--input help
-
-run: ## run app with demo data
-run: build
-	node $(NODE_ARGS) out/src/index.js $(RUN_ARGS)
-
-run-debug: ## run app and wait for debugger
-	NODE_ARGS=--inspect-brk $(MAKE) run
-
-run-graph: build
-	node $(NODE_ARGS) out/src/index.js $(RUN_ARGS) --depth 13
-	$(MAKE) graph
-
-run-image: ## run app from docker image
-run-image: image
-	docker run --rm -it $(DOCKER_IMAGE):latest $(RUN_ARGS)
 
 MOCHA_ARGS := --async-only \
 	--check-leaks \
