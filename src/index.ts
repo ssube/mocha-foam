@@ -1,11 +1,7 @@
 import { Arbitrary, check, property } from 'fast-check';
 
-export type TestDone = () => Promise<void>;
-export type Test<T> = (this: Mocha.Context, args: T) => Promise<void>;
-export type WrappedTest<T> = (this: Mocha.Context) => Promise<void>;
-
-export type WrappedCheck<T> = (t: T) => boolean;
-export type WrappedIt<T> = (name: string, test: WrappedCheck<T>) => void;
+export type Check<T> = (this: Mocha.Context, t: T) => boolean;
+export type WrappedIt<T> = (name: string, check: Check<T>) => void;
 export type Suite<T> = (it: WrappedIt<T>) => void;
 
 export function over<T>(name: string, strategy: Arbitrary<T>, suite: Suite<T>): void {
