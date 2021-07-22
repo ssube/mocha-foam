@@ -16,11 +16,7 @@ describe('example properties', () => {
     });
 
     it('should not throw', (n: number) => {
-      if (n.toString()[3] === '9') {
-        throw new Error('not a real number!');
-      }
-
-      return true;
+      expect(n).to.equal(9);
     });
 
     it('should resolve async checks', async (n: number) => {
@@ -44,7 +40,7 @@ describe('example properties', () => {
   }, {
     // fast-check parameters are supported, like examples
     examples: ['a', 'b'],
-    numRuns: 1_000_000_000,
+    numRuns: 1_000,
   });
 
   over('even numbers', integer().filter(n => n % 2 === 0), (it) => {
