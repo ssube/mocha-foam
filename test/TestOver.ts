@@ -1,20 +1,22 @@
-import { integer, lorem, tuple, uuid } from 'fast-check';
+import { expect } from 'chai';
+import { array, defaultReportMessage, integer, lorem, oneof, tuple, uuid } from 'fast-check';
 
 import { over } from '../src/index';
 
-describe('some foo', () => {
-  over('the bars', integer(), (it) => {
-    const large = Math.floor(Math.random() * 1_000_000);
-    it('should be a small number', (bar: number) => {
-      return bar < large;
+const LARGE_VALUE = Math.floor(Math.random() * 1_000_000_000);
+
+describe('example properties', () => {
+  over('some numbers', integer(), (it) => {
+    it('should be a small number', (n: number) => {
+      return n < LARGE_VALUE;
     });
 
-    it('should be even', (bar: number) => {
-      return bar % 2 === 0;
+    it('should be even', (n: number) => {
+      return n % 2 === 0;
     });
 
-    it('should not throw', (t: number) => {
-      if (t.toString()[3] === '9') {
+    it('should not throw', (n: number) => {
+      if (n.toString()[3] === '9') {
         throw new Error('not a real number!');
       }
 
@@ -23,6 +25,7 @@ describe('some foo', () => {
   });
 
   over('some IDs', uuid(), (it) => {
+    // beforeEach hooks work normally, since the wrapped it calls through to real it
     beforeEach(() => {
       console.log('before each ID test');
     });
@@ -35,7 +38,8 @@ describe('some foo', () => {
       return id.length > 2;
     });
   }, {
-    examples: [['a']],
+    // fast-check parameters are supported, like examples
+    examples: ['a', 'b'],
     numRuns: 1_000_000_000,
   });
 
@@ -49,5 +53,29 @@ describe('some foo', () => {
     it('should have content', (text: string) => {
       return text.length > 0;
     });
+  }, {
+    // error formatting can be overridden with a custom handler, or fast-check's default
+    errorReporter: defaultReportMessage,
+  });
+
+  over('tuples', tuple(integer(), integer()), (it) => {
+    // tuple properties are passed as a single parameter
+    it('should not be equal', ([a, b]) => {
+      return a === b;
+    });
+
+    it('should be uneven', ([a, b]) => {
+      return a < b;
+    });
+  }, {
+    examples: [[1, 2]]
+  });
+
+  over('arrays', array(integer()), (it) => {
+    it('should have items', (t: Array<number>) => {
+      expect(t).to.have.length.lessThan(5_000);
+    });
+  }, {
+    numRuns: 1_000,
   });
 });
