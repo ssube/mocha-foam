@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import { array, defaultReportMessage, integer, lorem, oneof, tuple, uuid } from 'fast-check';
+import { array, defaultReportMessage, integer, lorem, tuple, uuid } from 'fast-check';
 
-import { over } from '../src/index';
+import { over } from '../src';
 
 const LARGE_VALUE = Math.floor(Math.random() * 1_000_000_000);
 
@@ -21,6 +21,10 @@ describe('example properties', () => {
       }
 
       return true;
+    });
+
+    it('should resolve async checks', async (n: number) => {
+      expect(n).to.be.lessThanOrEqual(90);
     });
   });
 
