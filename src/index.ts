@@ -1,4 +1,4 @@
-import { Arbitrary, asyncProperty, check, Parameters, property, RunDetails } from 'fast-check';
+import { Arbitrary, asyncProperty, check, Parameters, RunDetails } from 'fast-check';
 
 export type CheckStatus = boolean | void;
 export type Check<T> = (this: Mocha.Context, val: T) => never | CheckStatus | Promise<CheckStatus>;
@@ -63,9 +63,9 @@ export function formatExamples<T>(details: RunDetails<[T]>): string {
         return val;
       }
     }).join(',');
-    return `failing on: ${examples}`;
+    return `failing on: ${examples} (seed: ${details.seed}, path: '${details.counterexamplePath}')`;
   } else {
-    return `without counterexamples`;
+    return `without counterexamples (seed: ${details.seed})`;
   }
 
 }
