@@ -67,15 +67,14 @@ export function formatExamples<T>(details: RunDetails<[T]>): string {
   } else {
     return `without counterexamples (seed: ${details.seed})`;
   }
-
 }
 
 export function formatPrefix<T>(details: RunDetails<[T]>): string {
-  if (isString(details.error)) {
-    if (isErrorRun(details)) {
-      return 'Property failed by throwing an error';
-    }
+  if (isErrorRun(details)) {
+    return 'Property failed by throwing an error';
+  }
 
+  if (isString(details.error)) {
     return details.error;
   }
 
@@ -87,7 +86,7 @@ export function isString(val: unknown): val is string {
 }
 
 export function isErrorRun<T>(details: RunDetails<T>): boolean {
-  if (details.error) {
+  if (isString(details.error)) {
     return /^([A-Z][a-z]*)*Error:/.test(details.error);
   }
   return false;
