@@ -16,7 +16,7 @@ describe('example properties', () => {
     });
 
     it('should not throw', (n: number) => {
-      expect(n).to.equal(9);
+      throw new Error('bad number!');
     });
 
     it('should resolve async checks', async (n: number) => {
@@ -35,7 +35,7 @@ describe('example properties', () => {
     });
 
     it('should be long enough', (id: string) => {
-      return id.length > 2;
+      expect(id).to.have.length.greaterThan(2);
     });
   }, {
     // fast-check parameters are supported, like examples

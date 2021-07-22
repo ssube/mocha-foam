@@ -20,14 +20,14 @@ export function over<T>(name: string, strategy: Arbitrary<T>, suite: Suite<T>, p
         const examples: Array<[T]> = parameters.examples?.map((it) => [it]) || [];
         const checkParameters: Parameters<[T]> = {
           ...parameters,
-          // handle result formatting here
+          // clear these in favor of the errorReporter
           asyncReporter: undefined,
           reporter: undefined,
           examples,
         };
         const reporter = (parameters.errorReporter || briefReporter) as ErrorReporter<[T]>;
 
-        // wrap the strategy arb in a one-shot property checking the test fn
+        // wrap the strategy arbitrary in a property checking the test fn
         // TODO: switch between property and asyncProperty as needed
         const property = asyncProperty(strategy, (val) => Promise.resolve(test.call(ctx, val)));
         return Promise.resolve(check(property, checkParameters)).then((result) => {
@@ -87,5 +87,8 @@ export function isString(val: unknown): val is string {
 }
 
 export function isErrorRun<T>(details: RunDetails<T>): boolean {
-  return details.error?.startsWith('Error:') || false;
+  if (details.error) {
+    return /^([A-Z][a-z]*)*Error:/.test(details.error);
+  }
+  return false;
 }
