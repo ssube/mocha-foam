@@ -113,7 +113,8 @@ export function formatPrefix<T>(details: RunDetails<[T]>): string {
 }
 
 /**
- * Guess whether the run threw an error.
+ * Guess whether the run threw an error. Looks for strings starting with `Error` or a typed error
+ * like `AssertionError`.
  *
  * @private
  */
