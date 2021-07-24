@@ -1,3 +1,7 @@
 .nyc_output/
 node_modules/
+out/coverage/
+out/test/
 test/
+
+Makefile

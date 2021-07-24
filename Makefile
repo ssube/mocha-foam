@@ -1,7 +1,5 @@
-.PHONY: build ci clean cover docs graph image install push run run-debug run-image test
+.PHONY: build ci clean cover docs graph image install push test
 
-DOCKER_ARGS ?=
-DOCKER_IMAGE := ssube/textual-engine
 GIT_ARGS ?=
 GIT_HEAD_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 NODE_ARGS ?=
