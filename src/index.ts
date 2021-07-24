@@ -82,13 +82,7 @@ export function briefReporter<T>(details: RunDetails<[T]>): string {
  */
 export function formatExamples<T>(details: RunDetails<[T]>): string {
   if (details.counterexample !== null) {
-    const examples = details.counterexample.map((val) => {
-      if (isString(val)) {
-        return `'${val}'`;
-      } else {
-        return val;
-      }
-    }).join(',');
+    const examples = details.counterexample.map((val) => JSON.stringify(val)).join(',');
     return `failing on: ${examples} (seed: ${details.seed}, path: '${details.counterexamplePath}')`;
   } else {
     return `without counterexamples (seed: ${details.seed})`;
