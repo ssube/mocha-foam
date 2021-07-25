@@ -1,9 +1,20 @@
 {
   "name": "mocha-foam",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "main": "out/src/index.js",
   "author": "ssube <seansube@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "bdd",
+    "fast-check",
+    "mocha",
+    "property based testing",
+    "property-based testing",
+    "test",
+    "testing",
+    "unit",
+    "unit testing"
+  ],
   "devDependencies": {
     "@types/chai-as-promised": "7.1.4",
     "@types/mocha": "8.2.3",
