@@ -92,7 +92,7 @@ found:
 
 ```none
   5) example properties
-       some IDs
+       some UUIDs
          should be a good one:
      Error: Property failed by returning false after 3 runs and 8 shrinks, failing on: "00000000-a000-300d-8000-000000000000" (seed: -886543855, path: '2:0:10:0:10:0:2:3:3')
       at /home/ssube/code/ssube/mocha-foam/out/src/index.js:20:385
