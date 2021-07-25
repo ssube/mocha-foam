@@ -1,6 +1,6 @@
 # mocha-foam
 
-An experimental Mocha BDD wrapper for fast-check.
+An experimental [Mocha BDD](https://mochajs.org/#bdd) wrapper for [fast-check's](https://github.com/dubzzz/fast-check/) property based testing.
 
 ## Contents
 
