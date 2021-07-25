@@ -44,9 +44,13 @@ describe('example properties', () => {
 });
 ```
 
-Most Mocha features, like `beforeEach` and `afterEach` hooks, work correctly within the suite defined by `over`.
+Assertions can be made through `expect` (and the other chai assertions) or by returning a boolean.
 
-You can pass additional run parameters to the fast-check Runner after the suite callback:
+Note the wrapped `it` passed to the suite callback by `over`. This calls through to Mocha's `it`, after wrapping the
+test in a fast-check property. Most Mocha features, like `beforeEach` and `afterEach` hooks, work correctly within
+the suite defined by `over`.
+
+You can pass additional parameters to the fast-check Runner after the suite callback:
 
 ```typescript
 describe('more examples', () => {
@@ -78,6 +82,18 @@ describe('more examples', () => {
     errorReporter: defaultReportMessage,
   });
 });
+```
+
+The default reporter, `briefReporter`, will print the number of runs, number of shrinks, and any counterexamples
+found:
+
+```none
+  5) example properties
+       some IDs
+         should be a good one:
+     Error: Property failed by returning false after 3 runs and 8 shrinks, failing on: "00000000-a000-300d-8000-000000000000" (seed: -886543855, path: '2:0:10:0:10:0:2:3:3')
+      at /home/ssube/code/ssube/mocha-foam/out/src/index.js:20:385
+      at processTicksAndRejections (internal/process/task_queues.js:97:5)
 ```
 
 ## Build
