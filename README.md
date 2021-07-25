@@ -13,10 +13,10 @@ An experimental Mocha BDD wrapper for fast-check.
 
 ## Install
 
-Add `mocha-foam` to your project as a dev dependency:
+Add `mocha-foam` to your project as a dev dependency, along with `fast-check`, if you are not already using it:
 
 ```shell
-> yarn add -D mocha-foam
+> yarn add -D fast-check mocha-foam
 ```
 
 ## Usage
@@ -44,7 +44,8 @@ describe('example properties', () => {
 });
 ```
 
-Assertions can be made through `expect` (and the other chai assertions) or by returning a boolean.
+Assertions can be made through `expect` (and the other chai assertions) or by returning a boolean, and may be `async`
+functions. The test callbacks are called with a Mocha context, so [the usual caveats](https://mochajs.org/#arrow-functions) apply.
 
 Note the wrapped `it` passed to the suite callback by `over`. This calls through to Mocha's `it`, after wrapping the
 test in a fast-check property. Most Mocha features, like `beforeEach` and `afterEach` hooks, work correctly within
