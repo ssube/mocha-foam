@@ -24,7 +24,7 @@ Add `mocha-foam` to your project as a dev dependency, along with `fast-check`, i
 This is a BDD-style wrapper around `fc.check(fc.asyncProperty(...))`, and supports all of the same [Arbitraries](https://github.com/dubzzz/fast-check/blob/main/documentation/Arbitraries.md)
 that fast-check normally provides.
 
-The entrypoint function is `over` and the library is provided as an ES module:
+Property based suites are defined with `over` and the library is provided as an ES module:
 
 ```typescript
 import { expect } from 'chai';
@@ -44,12 +44,13 @@ describe('example properties', () => {
 });
 ```
 
-Assertions can be made through `expect` (and the other chai assertions) or by returning a boolean, and may be `async`
-functions. The test callbacks are called with a Mocha context, so [the usual caveats](https://mochajs.org/#arrow-functions) apply.
+Assertions can be made through `expect` (and [the other Chai assertion styles](https://www.chaijs.com/guide/styles/))
+or by returning a boolean, and may be `async` functions. The test callbacks are called with a Mocha context in `this`,
+so [the usual caveats](https://mochajs.org/#arrow-functions) apply to arrow functions.
 
-Note the wrapped `it` passed to the suite callback by `over`. This calls through to Mocha's `it`, after wrapping the
-test in a fast-check property. Most Mocha features, like `beforeEach` and `afterEach` hooks, work correctly within
-the suite defined by `over`.
+Note the wrapped `it` passed to the suite callback by `over`. This wrapped `it` calls through to Mocha's `it`, after
+wrapping the test in a fast-check property, while `over` calls through to Mocha's `describe`. Most Mocha features,
+like `beforeEach` and `afterEach` hooks, work correctly within the suite defined by `over`.
 
 You can pass additional parameters to the fast-check Runner after the suite callback:
 
