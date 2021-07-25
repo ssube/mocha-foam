@@ -25,7 +25,6 @@
     "target": "es2017",
     "types": [
       "chai-as-promised",
-      "mocha",
       "node",
       "sinon-chai"
     ],

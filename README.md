@@ -13,10 +13,11 @@ An experimental [Mocha BDD](https://mochajs.org/#bdd) wrapper for [fast-check's]
 
 ## Install
 
-Add `mocha-foam` to your project as a dev dependency, along with `fast-check`, if you are not already using it:
+Add `mocha-foam` to your project as a dev dependency, along with `fast-check` and `mocha`, if you are not already
+using them:
 
 ```shell
-> yarn add -D fast-check mocha-foam
+> yarn add -D fast-check mocha mocha-foam
 ```
 
 ## Usage

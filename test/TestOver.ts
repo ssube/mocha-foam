@@ -1,7 +1,8 @@
 import { expect } from 'chai';
 import { array, defaultReportMessage, integer, lorem, tuple, uuid } from 'fast-check';
+import { describe, it } from 'mocha';
 
-import { over } from '../src';
+import { over } from '../src/index.js';
 
 const LARGE_VALUE = Math.floor(Math.random() * 1_000_000_000);
 

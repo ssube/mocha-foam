@@ -51,7 +51,6 @@ release: node_modules
 MOCHA_ARGS := --async-only \
 	--check-leaks \
 	--forbid-only \
-	--require esm \
 	--require source-map-support \
 	--require out/test/setup.js \
 	--recursive \
