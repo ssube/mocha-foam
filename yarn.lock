@@ -162,10 +162,10 @@ buffer-from@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
 
-c8@7.7.3:
-  version "7.7.3"
-  resolved "https://registry.yarnpkg.com/c8/-/c8-7.7.3.tgz#5af8f83b55dace03b353375e7a2ba85e2c13b17f"
-  integrity sha512-ZyA7n3w8i4ETV25tVYMHwJxCSnaOf/LfA8vOcuZOPbonuQfD7tBT/gMWZy7eczRpCDuHcvMXwoqAemg6R0p3+A==
+c8@7.8.0:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/c8/-/c8-7.8.0.tgz#8fcfe848587d9d5796f22e9b0546a387a66d1b3b"
+  integrity sha512-x2Bx+IIEd608B1LmjiNQ/kizRPkCWo5XzuV57J9afPjAHSnYXALwbCSOkQ7cSaNXBNblfqcvdycj+klmL+j6yA==
   dependencies:
     "@bcoe/v8-coverage" "^0.2.3"
     "@istanbuljs/schema" "^0.1.2"
