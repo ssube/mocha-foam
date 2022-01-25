@@ -327,10 +327,10 @@ esm@3.2.25:
   resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.25.tgz#342c18c29d56157688ba5ce31f8431fbb795cc10"
   integrity sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==
 
-fast-check@2.18.0:
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/fast-check/-/fast-check-2.18.0.tgz#0337d82e7d7cb4eed5806c42b9e61ed0fb6592b2"
-  integrity sha512-7KKUw0wtAJOVrJ1DgmFILd9EmeqMLGtfe5HoEtkYZfYIxohm6Zy7zPq1Zl8t6tPL8A3e86YZrheyGg2m5j8cLA==
+fast-check@2.21.0:
+  version "2.21.0"
+  resolved "https://registry.yarnpkg.com/fast-check/-/fast-check-2.21.0.tgz#0d2e20bc65343ee67ec0f58373358140c08a1217"
+  integrity sha512-hkTRytqMceXfnSwPnryIqKkxKJjfcvtVqJrWRb8tgmfyUsGajIgQqDFxCJ+As+l9VLUCcmx6XIYoXeQe2Ih0UA==
   dependencies:
     pure-rand "^5.0.0"
 
