@@ -22,7 +22,7 @@
     "@types/sinon": "10.0.8",
     "@types/sinon-chai": "3.2.8",
     "c8": "7.11.0",
-    "chai": "4.3.5",
+    "chai": "4.3.6",
     "chai-as-promised": "7.1.1",
     "esm": "3.2.25",
     "fast-check": "2.18.0",
