@@ -16,7 +16,7 @@
     "unit testing"
   ],
   "devDependencies": {
-    "@types/chai-as-promised": "7.1.4",
+    "@types/chai-as-promised": "7.1.5",
     "@types/mocha": "9.1.0",
     "@types/node": "16.11.24",
     "@types/sinon": "10.0.11",
