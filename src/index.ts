@@ -24,8 +24,8 @@ export interface ErrorParameters<T> extends Parameters<T> {
  * @throws Error when the property check fails
  * @public
  */
-export function over<T>(name: string, strategy: Arbitrary<T>, suite: Suite<T>, parameters: ErrorParameters<T> = {}): void {
-  describe(name, () => {
+export function over<T>(suiteName: string, strategy: Arbitrary<T>, suite: Suite<T>, parameters: ErrorParameters<T> = {}): void {
+  describe(suiteName, () => {
     suite((name, test) => {
       it(name, function (this: Mocha.Context): Promise<void> {
         const ctx = this;

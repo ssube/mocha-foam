@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { array, defaultReportMessage, integer, lorem, tuple, uuid } from 'fast-check';
-import { describe, it } from 'mocha';
+import { describe } from 'mocha';
 
 import { over } from '../src/index.js';
 
