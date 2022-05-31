@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/chai-as-promised": "7.1.5",
     "@types/mocha": "9.1.1",
-    "@types/node": "16.11.36",
+    "@types/node": "16.11.38",
     "@types/sinon": "10.0.11",
     "@types/sinon-chai": "3.2.8",
     "c8": "7.11.3",
