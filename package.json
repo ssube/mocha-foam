@@ -26,7 +26,7 @@
     "chai-as-promised": "7.1.1",
     "esm": "3.2.25",
     "fast-check": "2.25.0",
-    "mocha": "10.0.0",
+    "mocha": "10.1.0",
     "sinon": "14.0.1",
     "sinon-chai": "3.7.0",
     "source-map-support": "0.5.21",
