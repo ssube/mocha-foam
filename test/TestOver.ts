@@ -79,7 +79,7 @@ describe('example properties', () => {
   });
 
   it('mapped properties', (done) => {
-    over('mapped properties', tuple(lorem(), integer()).map(([a, b]) => a.substr(b)), (it) => {
+    over('mapped properties', tuple(lorem(), integer()).map(([a, b]) => a.substring(b)), (it) => {
       it('should have content', (text: string) => {
         return text.length > 0;
       });
