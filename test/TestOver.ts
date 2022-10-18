@@ -84,6 +84,7 @@ describe('example properties', () => {
         return text.length > 0;
       });
     }, {
+      examples: [''],
       // error formatting can be overridden with a custom handler, or fast-check's default
       errorReporter: defaultReportMessage,
     }, itFails('after 1 tests', done));
