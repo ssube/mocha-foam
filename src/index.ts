@@ -21,13 +21,19 @@ export interface ErrorParameters<T> extends Parameters<T> {
  * @param strategy a fast-check `Arbitrary` used to produce semi-random values
  * @param suite the test suite, as you would pass to `describe(name, suite)`
  * @param parameters additional parameters to the fast-check `Runner`
+ * @param tester the test execution callback, typically Mocha's `it`
  * @throws Error when the property check fails
  * @public
  */
-export function over<T>(suiteName: string, strategy: Arbitrary<T>, suite: Suite<T>, parameters: ErrorParameters<T> = {}): void {
+export function over<T>(
+  suiteName: string,
+  strategy: Arbitrary<T>,
+  suite: Suite<T>,
+  parameters: ErrorParameters<T> = {},
+  tester: Mocha.TestFunction = it): void {
   describe(suiteName, () => {
     suite((name, test) => {
-      it(name, function (this: Mocha.Context): Promise<void> {
+      tester(name, function (this: Mocha.Context): Promise<void> {
         const ctx = this;
         // something about check's type signature requires examples to be tuples,
         // which leads to triple-wrapping examples for tuple properties. help remove one layer
