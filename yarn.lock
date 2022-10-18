@@ -684,12 +684,12 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg==
 
-fast-check@2.25.0:
-  version "2.25.0"
-  resolved "https://registry.yarnpkg.com/fast-check/-/fast-check-2.25.0.tgz#5146601851bf3be0953bd17eb2b7d547936c6561"
-  integrity sha512-wRUT2KD2lAmT75WNIJIHECawoUUMHM0I5jrlLXGtGeqmPL8jl/EldUDjY1VCp6fDY8yflyfUeIOsOBrIbIiArg==
+fast-check@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/fast-check/-/fast-check-3.2.0.tgz#a1f2848de45a4ea6b4606993022ffde7003aa296"
+  integrity sha512-RH1GMdVeN6Le0B4gI7fz5VZnCgrkREqt4SFMGyFe8v9n06ZuFdR2npxJDl8GUvZQZCq0/mo92JYUZInZnUm0nw==
   dependencies:
-    pure-rand "^5.0.1"
+    pure-rand "^5.0.2"
 
 figures@^3.1.0:
   version "3.2.0"
@@ -1464,7 +1464,7 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-pure-rand@^5.0.1:
+pure-rand@^5.0.2:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-5.0.3.tgz#a2f15dfbc3be8433d1d8ed67ee411aa83fb90406"
   integrity sha512-9N8x1h8dptBQpHyC7aZMS+iNOAm97WMGY0AFrguU1cpfW3I5jINkWe5BIY5md0ofy+1TCIELsVcm/GJXZSaPbw==
