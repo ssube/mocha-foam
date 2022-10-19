@@ -1,6 +1,6 @@
 {
   "name": "mocha-foam",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "out/src/index.js",
   "author": "ssube <seansube@gmail.com>",
   "license": "MIT",
