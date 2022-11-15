@@ -31,7 +31,7 @@
     "source-map-support": "0.5.21",
     "standard-version": "^9.5.0",
     "tslib": "2.4.1",
-    "typescript": "4.8.4"
+    "typescript": "4.9.3"
   },
   "peerDependencies": {
     "fast-check": "^2.0.0 || ^3.0.0",
